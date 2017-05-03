@@ -24,7 +24,7 @@ public:
 	int mostrarTareaTrabajador(std::string DNI);
 	int eliminarTarea(std::string cod_tarea);
 
-	int chequearUsuario (char* nombre, char* contrasenya);
+	int chequearTrabajador (char* DNI, char* nombre);
 	//int chequearNombre(std::string nombre);
 	//int chequearContrasenya(std::string contrasenya);
 
