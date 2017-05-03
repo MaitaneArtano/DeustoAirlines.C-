@@ -12,8 +12,9 @@ private:
 
 public:
 	int mostrarTrabajadores();
-	int eliminarTrabajador();
+	int eliminarTrabajador(std::string DNI);
 	int insertarTrabajador(std::string DNI, std::string nombre, std::string apellido, std::string puesto);
+	int chequearTrabajador (char* DNI);
 
 	int insertarVuelo(std::string codigo, std::string origen, std::string destino, std::string fecha, double precio);
 	int mostrarVuelo(std::string vuelo);
@@ -24,7 +25,6 @@ public:
 	int mostrarTareaTrabajador(std::string DNI);
 	int eliminarTarea(std::string cod_tarea);
 
-	int chequearTrabajador (char* DNI, char* nombre);
 	//int chequearNombre(std::string nombre);
 	//int chequearContrasenya(std::string contrasenya);
 
