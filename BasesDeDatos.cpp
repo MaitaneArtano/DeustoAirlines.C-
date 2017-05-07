@@ -252,3 +252,183 @@ int BasesDeDatos::insertarVuelo(std::string codigo, std::string origen, std::str
 
 	return SQLITE_OK;
 }
+
+
+int BasesDeDatos::eliminarVuelo(std::string codigo) //borra el contenido del codigo que hemos seleccionado
+{
+
+
+	char sql[] = "delete from VUELO where codigo = ? ";
+
+	sqlite3_stmt *stmt;
+
+	int result = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) ;
+
+	if (result != SQLITE_OK) {
+		printf("Error preparing statement (DELETE)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	printf("SQL query prepared (DELETE)\n");
+
+	result = sqlite3_bind_int(stmt, 1, id);
+
+	if(result != SQLITE_OK)
+	{
+		printf("Error binding parameter(DELETE)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	result = sqlite3_bind_text(stmt, 2, vuelo.c_str(), strlen(vuelo.c_str()), 0);
+
+		if(result != SQLITE_OK)
+	{
+		printf("Error binding parameter(DELETE)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	result = sqlite3_step(stmt);
+
+	if (result != SQLITE_DONE) {
+		printf("Error deleting data\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+
+	result = sqlite3_finalize(stmt);
+	if (result != SQLITE_OK) {
+		printf("Error finalizing statement (DELETE)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	printf("Prepared statement finalized (DELETE)\n");
+
+	return SQLITE_OK;
+}
+
+//METODOS PARA TAREA
+
+
+int BasesDeDatos::insertarTarea(std::string cod_tarea,std::string DNI, std::string codigo, std::string descripcion) 
+{
+	sqlite3_stmt *stmt;
+
+	char sql[] = "insert into TAREA (cod_tarea, DNI, codigo, descripcion) values (?, ?, ?, ? )"; 
+	int result = sqlite3_prepare_v2(db, sql, strlen(sql) + 1, &stmt, NULL) ;
+	if (result != SQLITE_OK) {
+		printf("Error preparing statement (INSERT)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	printf("SQL query prepared (INSERT)\n");
+
+	result = sqlite3_bind_text(stmt, 1, cod_tarea.c_str(), cod_tarea.length(), SQLITE_STATIC);
+	if (result != SQLITE_OK) {
+		printf("Error binding parameters\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	result = sqlite3_bind_text(stmt, 1, DNI.c_str(), DNI.length(), SQLITE_STATIC);
+	if (result != SQLITE_OK) {
+		printf("Error binding parameters\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	result = sqlite3_bind_text(stmt, 2, codigo.c_str(), codigo.length(), SQLITE_STATIC);
+	if (result != SQLITE_OK) {
+		printf("Error binding parameters\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	result = sqlite3_bind_text(stmt, 2, descripcion.c_str(), descripcion.length(), SQLITE_STATIC);
+	if (result != SQLITE_OK) {
+		printf("Error binding parameters\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	//// NOOO SE COMO PONER PAL PRECIO
+
+	result = sqlite3_step(stmt);
+	if (result != SQLITE_DONE) {
+		printf("Error inserting new data into tarea table\n");
+		return result;
+	}
+
+	result = sqlite3_finalize(stmt);
+	if (result != SQLITE_OK) {
+		printf("Error finalizing statement (INSERT)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	printf("Prepared statement finalized (INSERT)\n");
+
+	return SQLITE_OK;
+}
+
+int BasesDeDatos::eliminarTarea(std::string cod_tarea) //borra el contenido del codigo de tarea que hemos seleccionado
+{
+
+
+	char sql[] = "delete from TAREA where cod_tarea = ? ";
+
+	sqlite3_stmt *stmt;
+
+	int result = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) ;
+
+	if (result != SQLITE_OK) {
+		printf("Error preparing statement (DELETE)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	printf("SQL query prepared (DELETE)\n");
+
+	result = sqlite3_bind_int(stmt, 1, id);
+
+	if(result != SQLITE_OK)
+	{
+		printf("Error binding parameter(DELETE)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	result = sqlite3_bind_text(stmt, 2, tarea.c_str(), strlen(tarea.c_str()), 0);
+
+		if(result != SQLITE_OK)
+	{
+		printf("Error binding parameter(DELETE)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	result = sqlite3_step(stmt);
+
+	if (result != SQLITE_DONE) {
+		printf("Error deleting data\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+
+	result = sqlite3_finalize(stmt);
+	if (result != SQLITE_OK) {
+		printf("Error finalizing statement (DELETE)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+		return result;
+	}
+
+	printf("Prepared statement finalized (DELETE)\n");
+
+	return SQLITE_OK;
+}
