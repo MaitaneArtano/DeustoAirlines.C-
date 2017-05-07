@@ -189,6 +189,8 @@ int BasesDeDatos::eliminarTrabajador(std::string DNI) //borra el contenido del D
 }
 
 
+
+
 // METODOS PARA VUELOS 
 
 int BasesDeDatos::insertarVuelo(std::string codigo, std::string origen, std::string destino, std::string fecha, double precio) 
@@ -356,7 +358,6 @@ int BasesDeDatos::insertarTarea(std::string cod_tarea,std::string DNI, std::stri
 		return result;
 	}
 
-	//// NOOO SE COMO PONER PAL PRECIO
 
 	result = sqlite3_step(stmt);
 	if (result != SQLITE_DONE) {
@@ -432,3 +433,26 @@ int BasesDeDatos::eliminarTarea(std::string cod_tarea) //borra el contenido del 
 
 	return SQLITE_OK;
 }
+
+
+
+BasesDeDatos::BasesDeDatos(std::string dbFile) 
+{
+	this->db = NULL;
+	this->num=0;
+	int result = sqlite3_open(dbFile.c_str(), &db);
+	if (result != SQLITE_OK)
+	{
+		printf("Error opening database\n");
+	}
+}
+
+BasesDeDatos::~BasesDeDatos() 
+{
+	int result = sqlite3_close(db);
+	if (result != SQLITE_OK) 
+	{
+		printf("Error closing database\n");
+		printf("%s\n", sqlite3_errmsg(db));
+	}
+}	
