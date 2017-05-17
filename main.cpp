@@ -3,6 +3,6 @@
 int main 
 {
 
-
-return 0;
+	Trabajador *t1 = new Trabajador(72121212, "Manolo", "Blue", "Secretario");
+	return 0;
 }

@@ -17,8 +17,13 @@ public:
 	//Para cambiar cualquier atributo del trabajador primero tenemos que buscar el trabajador que nos interesa en fichero (por DNI), despues
 	//hacer los sets al trabajador que nos interesen y finalmente escribir en fichero
 	void setNomApe(int DNI, string nombre, string apellido);
-	void setPuesto(int DNI, string puesto);
-	void escribirFichero(Trabajador t);
+	int getDNI();
+	string getNombre();
+	string getApellido();
+	string getPuesto();
+	//void setPuesto(int DNI, string puesto);
+	//Funcion que escribira directamente en fichero el trabajador
+	friend istream& operator>>(istream &in, Trabajador t);
 	//Falta eliminar trabajador
 
 
