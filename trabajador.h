@@ -12,6 +12,7 @@ private:
 	string puesto;
 
 public:
+	Trabajador();
 	Trabajador(int DNI, string nombre, string apellido, string puesto);
 
 	//Para cambiar cualquier atributo del trabajador primero tenemos que buscar el trabajador que nos interesa en fichero (por DNI), despues

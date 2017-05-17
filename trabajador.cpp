@@ -7,12 +7,15 @@
 
 using namespace std;
 
-int DNI;
-string Nombre;
-string Apellido;
-string Puesto;
+
+
 
 void EscribirTrabajador();
+
+Trabajador::Trabajador()
+{}
+
+
 
 Trabajador::Trabajador(int DNI, string nombre, string apellido, string puesto)
 {
@@ -51,6 +54,7 @@ string Trabajador::getPuesto()
 	return this->puesto;
 }
 
+/*
 istream& operator>>(istream& in, Trabajador t)
 {
 	in>>t.getDNI()>>endl;
@@ -60,12 +64,17 @@ istream& operator>>(istream& in, Trabajador t)
 	in>>"---------------------------">>endl;
 
 	return in;
-}
+}*/
 
 void EscribirTrabajador() // insertar trabajador en el fichero 
 {
 
 	//Trabajador *t = new Trabajador();
+    
+	int DNI;
+	string Nombre;
+	string Apellido;
+	string Puesto;
 
 	ofstream archivo;
 	archivo.open("Trabajador.txt", ios::out); // para abrir el archivo, si no hay txt crea y si ya existe lo reemplaza

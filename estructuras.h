@@ -1,6 +1,12 @@
 #ifndef ESTRUCTURAS_H_
 #define ESTRUCTURAS_H_
 
+#ifdef __cplusplus
+
+extern "C"
+{
+
+#endif
 
 void clear_if_needed(char *str);
 //Metodos de menu.c
@@ -19,4 +25,11 @@ void asignarTarea();
 void guardarEnFic(int DNI, int codigo, char *descrip);
 void LeerAgenda();
 
-#endif 
+#ifdef __cplusplus
+
+
+}
+
+#endif
+
+#endif

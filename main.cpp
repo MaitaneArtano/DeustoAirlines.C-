@@ -1,10 +1,11 @@
-#include "Principal.h"
+//#include "Principal.h"
+#include "menu.c"
 
-int main 
+int main()
 {
 
-	Trabajador *t1 = new Trabajador(72121212, "Manolo", "Blue", "Secretario");
+	menuPrincipal();
+	//Trabajador *t1 = new Trabajador(72121212, "Manolo", "Blue", "Secretario");
 
-	
 	return 0;
 }
