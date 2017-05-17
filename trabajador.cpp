@@ -1,10 +1,18 @@
 #include <string>
 #include "trabajador.h"
 #include "estructuras.h"
+#include <stdlib.h>
 #include <iostream>
 #include <fstream> //Provee de las clases ofstream(salida), ifstream(entrada) y fstream(entrada/salida)
 
 using namespace std;
+
+int DNI;
+string Nombre;
+string Apellido;
+string Puesto;
+
+
 
 Trabajador::Trabajador(int DNI, string nombre, string apellido, string puesto)
 {
@@ -52,4 +60,38 @@ istream& operator>>(istream& in, Trabajador t)
 	in>>"---------------------------">>endl;
 
 	return in;
+}
+
+void EscribirTrabajador() // insertar trabajador en el fichero 
+{
+
+	ofstream archivo;
+
+	archivo.open("Trabajador.txt", ios::out); // para abrir el archivo, si no hay txt crea y si ya existe lo reemplaza
+
+	if(archivo.fail())
+	{
+		cout << "No se pudo abrir el archivo";
+		exit(1);
+	}
+
+
+	cout << "Escriba el DNI del trabajador" << endl;
+	getline(cin, DNI);
+	archivo << DNI << endl;
+
+	cout << "Escriba el nombre del trabajador" << endl;
+	getline(cin, Nombre);
+	archivo << Nombre << endl;
+
+	cout << "Escriba el apellido del trabajador" << endl;
+	getline(cin, Apellido);
+	archivo << Apellido << endl;
+
+	cout << "Escriba el puesto del trabajador" << endl;
+	getline(cin, Puesto);
+	archivo << Puesto << endl;
+
+
+
 }
