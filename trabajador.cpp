@@ -12,7 +12,7 @@ string Nombre;
 string Apellido;
 string Puesto;
 
-
+void EscribirTrabajador();
 
 Trabajador::Trabajador(int DNI, string nombre, string apellido, string puesto)
 {
@@ -65,8 +65,9 @@ istream& operator>>(istream& in, Trabajador t)
 void EscribirTrabajador() // insertar trabajador en el fichero 
 {
 
-	ofstream archivo;
+	//Trabajador *t = new Trabajador();
 
+	ofstream archivo;
 	archivo.open("Trabajador.txt", ios::out); // para abrir el archivo, si no hay txt crea y si ya existe lo reemplaza
 
 	if(archivo.fail())
@@ -74,7 +75,6 @@ void EscribirTrabajador() // insertar trabajador en el fichero
 		cout << "No se pudo abrir el archivo";
 		exit(1);
 	}
-
 
 	cout << "Escriba el DNI del trabajador" << endl;
 	getline(cin, DNI);
@@ -91,7 +91,4 @@ void EscribirTrabajador() // insertar trabajador en el fichero
 	cout << "Escriba el puesto del trabajador" << endl;
 	getline(cin, Puesto);
 	archivo << Puesto << endl;
-
-
-
 }
