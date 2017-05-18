@@ -1,5 +1,4 @@
-//#include "Principal.h"
-#include "estructuras.h"
+#include "general.h"
 #include "trabajador.h"
 #include <iostream>
 

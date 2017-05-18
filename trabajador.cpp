@@ -8,15 +8,12 @@
 using namespace std;
 
 
-
-
 Trabajador::Trabajador(int DNI, string nombre, string apellido, string puesto)
 {
 	this->DNI = DNI;
 	this->nombre = nombre;
 	this->apellido = apellido;
 	this->puesto = puesto;
-
 }
 
 void Trabajador::setNomApe(int DNI, string nombre, string apellido)
@@ -25,7 +22,6 @@ void Trabajador::setNomApe(int DNI, string nombre, string apellido)
 	{
 		cout<<"No existe el trabajador al que se quiere modificar"<<endl;
 	}*/
-
 }
 
 int Trabajador::getDNI()
@@ -48,7 +44,6 @@ string Trabajador::getPuesto()
 	return this->puesto;
 }
 
-
 istream& operator>>(istream &in, Trabajador& t)
 {
 	cout<<"Escriba el DNI del trabajador:"<<endl;
@@ -58,17 +53,12 @@ istream& operator>>(istream &in, Trabajador& t)
 	cout<<"Escriba el apellido del trabajador:"<<endl;
 	cin>>t.apellido;
 	cout<<"Escriba el puesto del trabajador:"<<endl;
-	cin>>t.puesto;
-
-	
+	cin>>t.puesto;	
 	return in;
 }
 
-
-
 void Trabajador::EscribirTrabajador(Trabajador& t) // insertar trabajador en el fichero 
 {
-
 	ofstream archivo;
 	archivo.open("Trabajador.txt", ios::app); // para abrir el archivo, si no hay txt crea y si ya existe lo reemplaza
 
@@ -80,11 +70,10 @@ void Trabajador::EscribirTrabajador(Trabajador& t) // insertar trabajador en el 
 
 	else
 	{
-	
-	archivo << t.DNI << endl;
-	archivo << t.nombre << endl;
-	archivo << t.apellido << endl;
-	archivo << t.puesto << endl;
-	archivo << "---------------";
+		archivo << t.DNI << endl;
+		archivo << t.nombre << endl;
+		archivo << t.apellido << endl;
+		archivo << t.puesto << endl;
+		archivo << "---------------";
 	}
 }
