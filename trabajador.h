@@ -12,7 +12,7 @@ private:
 	string puesto;
 
 public:
-	Trabajador();
+	Trabajador(){};
 	Trabajador(int DNI, string nombre, string apellido, string puesto);
 
 	//Para cambiar cualquier atributo del trabajador primero tenemos que buscar el trabajador que nos interesa en fichero (por DNI), despues
@@ -22,7 +22,7 @@ public:
 	string getNombre();
 	string getApellido();
 	string getPuesto();
-	//void EscribirTrabajador();
+	void EscribirTrabajador(Trabajador& t);
 	//void setPuesto(int DNI, string puesto);
 	//Funcion que escribira directamente en fichero el trabajador
 	friend istream& operator>>(istream &in, Trabajador& t);

@@ -18,7 +18,8 @@ void menuPrincipal()
 		printf("3.- Consultar trabajadores\n");
 		printf("4.- Asignar tarea a trabajador\n");
 		printf("5.- Ver agenda de trabajo\n");
-		printf("6.- Salir\n");
+		printf("6.- Insertar nuevo trabajador");
+		printf("7.- Salir\n");
 		scanf("%d", &opcion);
 		switch(opcion)
 		{
@@ -49,6 +50,7 @@ void menuPrincipal()
 
 			case 6:
 				printf("\n Ha escogido insertar trabajador: \n");
+				InsertarTrabajador();
 				break;
 
 			case 7:
@@ -109,6 +111,8 @@ int validacionVuelo(int cod_vuelo)//Devuelve 1 en caso de que exista, -1 si no h
 		return 0; //En caso de que el codigo de vuelo NO coincida con el de ningun vuelo
 	}
 }
+
+
 
 
 
