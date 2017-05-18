@@ -46,7 +46,7 @@ string Trabajador::getPuesto()
 
 istream& operator>>(istream &in, Trabajador& t)
 {
-	cout<<"Escriba el DNI del trabajador:"<<endl;
+	cout<<"Escriba el DNI del trabajador(sin letra):"<<endl;
 	cin>> t.DNI;
 	cout<<"Escriba el nombre del trabajador:"<<endl;
 	cin>>t.nombre;
@@ -70,6 +70,7 @@ void Trabajador::EscribirTrabajador(Trabajador& t) // insertar trabajador en el 
 
 	else
 	{
+		archivo << endl;
 		archivo << t.DNI << endl;
 		archivo << t.nombre << endl;
 		archivo << t.apellido << endl;

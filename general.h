@@ -5,12 +5,8 @@
 using namespace std;
 
 
-class general
-{
-	void menuPrincipal();
-	void InsertarTrabajador();
-};
-
+void menuPrincipal();
+void InsertarTrabajador();
 
 
 #endif
