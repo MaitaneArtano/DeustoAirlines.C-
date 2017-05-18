@@ -10,8 +10,6 @@ using namespace std;
 
 
 
-void EscribirTrabajador();
-
 Trabajador::Trabajador()
 {}
 
@@ -54,19 +52,23 @@ string Trabajador::getPuesto()
 	return this->puesto;
 }
 
-/*
-istream& operator>>(istream& in, Trabajador t)
+
+istream& operator>>(istream& in, Trabajador& t)
 {
-	in>>t.getDNI()>>endl;
-	in>>t.getNombre()>>endl;
-	in>>t.getApellido()>>endl;
-	in>>t.getPuesto()>>endl;
-	in>>"---------------------------">>endl;
+	cout<<"Escriba el DNI del trabajador:"<<endl;
+	cin>>t.DNI>>endl;
+	cout<<"Escriba el nombre del trabajador:"<<endl;
+	cin>>t.nombre>>endl;
+	cout<<"Escriba el apellido del trabajador:"<<endl;
+	cin>>t.apellido>>endl;
+	cout<<"Escriba el puesto del trabajador:"<<endl;
+	cin>>t.puesto>>endl;
+	cin>>"---------------------------">>endl;
 
 	return in;
-}*/
-
-void EscribirTrabajador() // insertar trabajador en el fichero 
+}
+/*
+void Trabajador::EscribirTrabajador() // insertar trabajador en el fichero 
 {
 
 	//Trabajador *t = new Trabajador();
@@ -86,18 +88,18 @@ void EscribirTrabajador() // insertar trabajador en el fichero
 	}
 
 	cout << "Escriba el DNI del trabajador" << endl;
-	getline(cin, DNI);
-	archivo << DNI << endl;
+	getline(cin, this->DNI);
+	archivo << this->DNI << endl;
 
 	cout << "Escriba el nombre del trabajador" << endl;
-	getline(cin, Nombre);
-	archivo << Nombre << endl;
+	getline(cin, this->nombre);
+	archivo << this->nombre << endl;
 
 	cout << "Escriba el apellido del trabajador" << endl;
-	getline(cin, Apellido);
-	archivo << Apellido << endl;
+	getline(cin, this->apellido);
+	archivo << this->apellido << endl;
 
 	cout << "Escriba el puesto del trabajador" << endl;
-	getline(cin, Puesto);
-	archivo << Puesto << endl;
-}
+	getline(cin, this->puesto);
+	archivo << this->puesto << endl;
+}*/
