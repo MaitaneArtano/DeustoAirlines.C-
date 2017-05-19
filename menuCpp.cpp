@@ -3,13 +3,13 @@
 #include "estructuras.h"
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 
 void menuPrincipal()
 {
 	int opcion;
-
 
 	do
 	{
@@ -26,7 +26,9 @@ void menuPrincipal()
 		{
 			case 1:
 				cout<<"Ha escogido crear un nuevo vuelo"<<endl;
+			
 				//IntroducirVuelo(); 
+				
 				break;
 
 			case 2:
@@ -64,6 +66,7 @@ void menuPrincipal()
 		}
 	}while(opcion!=7);
 }
+
 
 void InsertarTrabajador() // validar el DNI del trabajador antes de guardar en fichero
 {
