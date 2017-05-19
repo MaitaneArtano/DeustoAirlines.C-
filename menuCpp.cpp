@@ -36,7 +36,7 @@ void menuPrincipal()
 
 			case 3:
 				cout<<"Ha escogido consultar los trabajadores existentes"<<endl;
-				//LeerTrabajadores();
+				listarTrabajadores();
 				break;
 
 			case 4:
@@ -73,3 +73,11 @@ void InsertarTrabajador() // validar el DNI del trabajador antes de guardar en f
 
 	t1.EscribirTrabajador(t1);
 }
+
+void listarTrabajadores()
+{
+	Trabajador t1;
+	t1.ConsultarTrabajadores();
+
+}
+

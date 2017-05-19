@@ -77,4 +77,30 @@ void Trabajador::EscribirTrabajador(Trabajador& t) // insertar trabajador en el 
 		archivo << t.puesto << endl;
 		archivo << "---------------";
 	}
+
+}
+void Trabajador::ConsultarTrabajadores()
+{
+	ifstream archivo;
+	string texto;
+	archivo.open("Trabajador.txt", ios::in);
+
+
+	if(archivo.fail())
+	{
+		cout << "No se pudo abrir el archivo";
+		exit(1);
+	}else
+	{
+
+		while(!archivo.eof())
+		{
+			getline(archivo,texto);
+			cout<<texto<<endl;
+
+		}
+	}
+
+	archivo.close();
+
 }

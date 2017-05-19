@@ -23,6 +23,7 @@ public:
 	string getApellido();
 	string getPuesto();
 	void EscribirTrabajador(Trabajador& t);
+	void ConsultarTrabajadores();
 	//void setPuesto(int DNI, string puesto);
 	//Funcion que escribira directamente en fichero el trabajador
 	friend istream& operator>>(istream &in, Trabajador& t);

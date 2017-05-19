@@ -7,6 +7,6 @@ using namespace std;
 
 void menuPrincipal();
 void InsertarTrabajador();
-
+void listarTrabajadores();
 
 #endif
