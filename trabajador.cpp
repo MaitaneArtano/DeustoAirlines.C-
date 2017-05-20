@@ -53,7 +53,8 @@ istream& operator>>(istream &in, Trabajador& t)
 	cout<<"Escriba el apellido del trabajador:"<<endl;
 	cin>>t.apellido;
 	cout<<"Escriba el puesto del trabajador:"<<endl;
-	cin>>t.puesto;	
+	cin>>t.puesto;
+	cout<< "-----------------------------------" <<endl;	
 	return in;
 }
 
@@ -102,5 +103,4 @@ void Trabajador::ConsultarTrabajadores()
 	}
 
 	archivo.close();
-
 }

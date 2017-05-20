@@ -27,13 +27,13 @@ void menuPrincipal()
 			case 1:
 				cout<<"Ha escogido crear un nuevo vuelo"<<endl;
 			
-				//IntroducirVuelo(); 
+				IntroducirVuelo(); 
 				
 				break;
 
 			case 2:
 				cout<<"Ha escogido consultar los vuelos existentes"<<endl;
-				//LeerVuelos();
+				LeerVuelos();
 				break;
 
 			case 3:
@@ -43,12 +43,12 @@ void menuPrincipal()
 
 			case 4:
 				cout<<"Ha escogido asignar tarea a trabajador"<<endl;
-				//asignarTarea();
+				asignarTarea();
 				break;
 
 			case 5:
 				cout<<"Ha escogido ver la lista de agenda de trabajo"<<endl;
-				//LeerAgenda();
+				LeerAgenda();
 				break;
 
 			case 6:

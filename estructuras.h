@@ -1,11 +1,14 @@
-#ifndef ESTRUCTURAS_H_
-#define ESTRUCTURAS_H_
+#ifndef _ESTRUCTURAS_H_
+#define _ESTRUCTURAS_H_
 
 #ifdef __cplusplus
 
 extern "C"
 {
 	#endif
+
+	#include <stdio.h>
+	#include <stdlib.h>
 
 	//Metodos de menu.c
 	int validacion(int DNI);
@@ -23,10 +26,8 @@ extern "C"
 	void guardarEnFic(int DNI, int codigo, char *descrip);
 	void LeerAgenda();
 
-
 	#ifdef __cplusplus
 }
 
 #endif
-
 #endif
