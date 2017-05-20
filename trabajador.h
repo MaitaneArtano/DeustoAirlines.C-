@@ -17,6 +17,7 @@ public:
 	//Constructores
 	Trabajador(){};
 	Trabajador(int DNI, string nombre, string apellido, string puesto);
+	~Trabajador(){};
 
 	//Getters y setters
 	void setDNI(int DNI);

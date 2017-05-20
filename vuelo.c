@@ -34,7 +34,7 @@ int IntroducirVuelo() //Devolvera 1 en caso de que no se pueda o no se quiera es
     {
         fgets(str1, 20, stdin);
         clear_if_needed(str1);
-        sscanf(str1, "%s", origen);
+        sscanf(str1, "%[^\n]s", origen);
     }while(origen==NULL);
 
     printf("Introduzca el destino del vuelo:\n");
@@ -42,7 +42,7 @@ int IntroducirVuelo() //Devolvera 1 en caso de que no se pueda o no se quiera es
     {
         fgets(str1, 20, stdin);
         clear_if_needed(str1);
-        sscanf(str1, "%s", &destino);
+        sscanf(str1, "%[^\n]s", &destino);
     }while(destino==NULL);
 
     printf("Introduzca la fecha del vuelo, en formato xx/xx/xx:\n");
@@ -50,7 +50,7 @@ int IntroducirVuelo() //Devolvera 1 en caso de que no se pueda o no se quiera es
     {
         fgets(str1, 9, stdin);
         clear_if_needed(str1);
-        sscanf(str1, "%s", &fecha);
+        sscanf(str1, "%[^\n]s", &fecha);
     }while(fecha==NULL);
 
      printf("Introduzca el precio del vuelo, con 2 decimales:\n");

@@ -143,28 +143,32 @@ vector<Trabajador> Trabajador::leerDeFichero(string fic)
 
 	while(!ifs.eof())
 	{
+		cout<< "TRABAJADOR ["<<numTrabajador<<"] "<<endl;
 		getline(ifs, dato);
 		 if(dato != nada) //Para asegurar que las rayas no se guardan como atributo del trabajador
 		 {
-		 	cout<< "TRABAJADOR ["<<numTrabajador<<"] "<<endl;
 		 	if(i==0)
 		 	{
 		 		trabajador[numTrabajador].setDNI(atoi(dato.c_str()));
+		 		cout<<"DNI guardado en vector"<<atoi(dato.c_str())<< endl;
 		 		i++;
 		 	}
 		 	if(i==1)
 		 	{
 		 		trabajador[numTrabajador].setNombre(dato);
+		 		cout<<"Nombre guardado en vector"<<dato<<endl;
 		 		i++;
 		 	}
 		 	if(i==2)
 		 	{
 		 		trabajador[numTrabajador].setApellido(dato);
+		 		cout<<"Apellido guardado en vector"<<dato<<endl;
 		 		i++;
 		 	}
 		 	if(i==3)
 		 	{
 		 		trabajador[numTrabajador].setPuesto(dato);
+		 		cout<<"Puesto guardado en vector"<<dato<<endl;
 		 		i++;
 		 	}
 		 }else

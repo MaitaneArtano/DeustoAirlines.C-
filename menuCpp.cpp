@@ -88,21 +88,16 @@ void listarTrabajadores()
 
 	cout<<"Leyendo trabajadores de vectorTrabajadores..."<<endl;
 	vector<Trabajador> miVector = t1.leerDeFichero(fichero);
-	vector<Trabajador>::iterator it;
-	for(it = miVector.begin(); it !=miVector.end(); it++)
-	{
-		cout << *it << endl;
-	}
-	/*vector<Trabajador> miVector = t1.leerDeFichero(fichero);
 	for(int i=0; i<miVector.size(); i++)
 	{
-		Trabajador t1 = mivector.at(i);
+		Trabajador t = miVector[i];
 		cout<<"Trabajador "<< i <<endl;
-		cout<< atoi(t1.getDNI().c_str()) <<endl;
-		cout <<t1.getNombre()<<endl;
-		cout<<t1.getApellido()<<endl;
-		cout<<t1.getPuesto()<<endl;
-	}*/
+		//cout<< atoi(t.getDNI().c_str()) <<endl;
+		cout <<t.getNombre()<<endl;
+		cout<<t.getApellido()<<endl;
+		cout<<t.getPuesto()<<endl;
+		i++;
+	}
 }
 
 
