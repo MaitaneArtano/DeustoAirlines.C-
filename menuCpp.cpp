@@ -3,6 +3,8 @@
 #include "estructuras.h"
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -26,9 +28,7 @@ void menuPrincipal()
 		{
 			case 1:
 				cout<<"Ha escogido crear un nuevo vuelo"<<endl;
-			
 				IntroducirVuelo(); 
-				
 				break;
 
 			case 2:
@@ -80,7 +80,30 @@ void InsertarTrabajador() // validar el DNI del trabajador antes de guardar en f
 void listarTrabajadores()
 {
 	Trabajador t1;
+	string fichero = "Trabajador.txt";
 	t1.ConsultarTrabajadores();
 
+	int longitud = t1.longFichero(fichero);
+	cout<<"Tenemos "<< longitud <<" trabajadores registrados "<<endl;
+
+	cout<<"Leyendo trabajadores de vectorTrabajadores..."<<endl;
+	vector<Trabajador> miVector = t1.leerDeFichero(fichero);
+	vector<Trabajador>::iterator it;
+	for(it = miVector.begin(); it !=miVector.end(); it++)
+	{
+		cout << *it << endl;
+	}
+	/*vector<Trabajador> miVector = t1.leerDeFichero(fichero);
+	for(int i=0; i<miVector.size(); i++)
+	{
+		Trabajador t1 = mivector.at(i);
+		cout<<"Trabajador "<< i <<endl;
+		cout<< atoi(t1.getDNI().c_str()) <<endl;
+		cout <<t1.getNombre()<<endl;
+		cout<<t1.getApellido()<<endl;
+		cout<<t1.getPuesto()<<endl;
+	}*/
 }
+
+
 

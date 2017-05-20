@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <fstream> //Provee de las clases ofstream(salida), ifstream(entrada) y fstream(entrada/salida)
+#include <vector>
 
 using namespace std;
 
@@ -16,12 +17,24 @@ Trabajador::Trabajador(int DNI, string nombre, string apellido, string puesto)
 	this->puesto = puesto;
 }
 
-void Trabajador::setNomApe(int DNI, string nombre, string apellido)
+void Trabajador::setDNI(int DNI)
 {
-	/*if(validacion(DNI)!=1)//Devuelve 1 en caso de que exista, -1 si no hay trabajadores y 0 si no coincide con ningun trabajador
-	{
-		cout<<"No existe el trabajador al que se quiere modificar"<<endl;
-	}*/
+	this->DNI = DNI;
+}
+
+void Trabajador::setNombre(string nombre)
+{
+	this->nombre = nombre;
+}
+
+void Trabajador::setApellido(string apellido)
+{
+	this->apellido = apellido;
+}
+
+void Trabajador::setPuesto(string puesto)
+{
+	this->puesto = puesto;
 }
 
 int Trabajador::getDNI()
@@ -78,14 +91,13 @@ void Trabajador::EscribirTrabajador(Trabajador& t) // insertar trabajador en el 
 		archivo << t.puesto << endl;
 		archivo << "---------------";
 	}
-
 }
+
 void Trabajador::ConsultarTrabajadores()
 {
 	ifstream archivo;
 	string texto;
 	archivo.open("Trabajador.txt", ios::in);
-
 
 	if(archivo.fail())
 	{
@@ -93,23 +105,82 @@ void Trabajador::ConsultarTrabajadores()
 		exit(1);
 	}else
 	{
-
 		while(!archivo.eof())
 		{
 			getline(archivo,texto);
 			cout<<texto<<endl;
-
 		}
 	}
-
 	archivo.close();
 }
 
-void Trabajador::ModificarTrabajador()
+int Trabajador::longFichero(string fic)
 {
+	ifstream ifs(fic.c_str());
+	int longFichero = 0;
+	string dato;
 
+	while(!ifs.eof())
+	{
+		getline(ifs, dato);
+		longFichero++;
+	}
 
+	ifs.close();
+	return (longFichero/5); //Se tiene en cuenta que cada trabajador tiene 4 atributos + "-------"
+}
 
+vector<Trabajador> Trabajador::leerDeFichero(string fic)
+{
+	Trabajador *trabajador = new Trabajador[longFichero(fic)]; //Crea un array a trabajadores reservando el numero de trabajadores que hay
+	int i = 0; //i controla que la fila 0 es el DNI, el 1 el nombre, 2 apellido, 3 puesto y cuando i=4 --> "-----", i se pone otra vez a 0
+
+	int numTrabajador = 0;
+	ifstream ifs(fic.c_str());
+	vector<Trabajador> vectorTrabajadores;
+	string dato;
+	string nada = "---------------";
+
+	while(!ifs.eof())
+	{
+		getline(ifs, dato);
+		 if(dato != nada) //Para asegurar que las rayas no se guardan como atributo del trabajador
+		 {
+		 	cout<< "TRABAJADOR ["<<numTrabajador<<"] "<<endl;
+		 	if(i==0)
+		 	{
+		 		trabajador[numTrabajador].setDNI(atoi(dato.c_str()));
+		 		i++;
+		 	}
+		 	if(i==1)
+		 	{
+		 		trabajador[numTrabajador].setNombre(dato);
+		 		i++;
+		 	}
+		 	if(i==2)
+		 	{
+		 		trabajador[numTrabajador].setApellido(dato);
+		 		i++;
+		 	}
+		 	if(i==3)
+		 	{
+		 		trabajador[numTrabajador].setPuesto(dato);
+		 		i++;
+		 	}
+		 }else
+		 {
+		 	i=0;
+		 	vectorTrabajadores.push_back(trabajador[numTrabajador]);
+		 	numTrabajador++;
+		 }
+	}
+
+	ifs.close();
+	return vectorTrabajadores;
+}
+
+void Trabajador::ModificarTrabajador(string fic)
+{
 
 
 }
