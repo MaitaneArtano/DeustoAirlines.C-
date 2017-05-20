@@ -104,3 +104,12 @@ void Trabajador::ConsultarTrabajadores()
 
 	archivo.close();
 }
+
+void Trabajador::ModificarTrabajador()
+{
+
+
+
+
+
+}
