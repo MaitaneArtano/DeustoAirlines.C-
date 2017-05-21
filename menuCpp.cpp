@@ -60,7 +60,7 @@ void menuPrincipal()
 
 			case 7:
 				cout<<"Ha escogido modificar trabajador"<<endl;
-				ModificarTrabajador();
+				//ModificarTrabajador();
 				break;
 
 			case 8:

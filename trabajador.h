@@ -31,11 +31,10 @@ public:
 
 	void EscribirTrabajador(Trabajador& t);
 	void ConsultarTrabajadores();
-	void ModificarTrabajador(string fic);
+	//void ModificarTrabajador(string fic);
 	vector<Trabajador> leerDeFichero(string fic);
 	int longFichero(string fic);
-	void ReescribirEnFichero (string fic,  vector<Trabajador> t);
-	//void setPuesto(int DNI, string puesto);
+	//void ReescribirEnFichero (string fic,  vector<Trabajador> t);
 
 	//Funcion que escribira directamente en fichero el trabajador
 	friend istream& operator>>(istream &in, Trabajador& t);
