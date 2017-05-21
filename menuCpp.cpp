@@ -22,7 +22,8 @@ void menuPrincipal()
 		cout<<"4.- Asignar tarea a trabajador"<<endl;
 		cout<<"5.- Ver agenda de trabajo"<<endl;
 		cout<<"6.- Insertar nuevo trabajador"<<endl;
-		cout<<"7.- Salir"<<endl;
+		cout<<"7.- Modificar un trabajador"<<endl;
+		cout<<"8.- Salir"<<endl;
 		cin >> opcion;
 		switch(opcion)
 		{
@@ -56,7 +57,13 @@ void menuPrincipal()
 				InsertarTrabajador();
 				break;
 
+
 			case 7:
+				cout<<"Ha escogido modificar trabajador"<<endl;
+				ModificarTrabajador();
+				break;
+
+			case 8:
 				cout<<"Adios!"<<endl;
 				break;
 
@@ -64,7 +71,7 @@ void menuPrincipal()
 				cout<<"La opcion elegida es incorrecta"<<endl;
 				break;
 		}
-	}while(opcion!=7);
+	}while(opcion!=8);
 }
 
 
@@ -76,6 +83,7 @@ void InsertarTrabajador() // validar el DNI del trabajador antes de guardar en f
 
 	t1.EscribirTrabajador(t1);
 }
+
 
 void listarTrabajadores()
 {
