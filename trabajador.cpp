@@ -199,7 +199,6 @@ void Trabajador::ReescribirEnFichero (string fic,  vector<Trabajador> t)
 }
 
 
-
 void Trabajador::ModificarTrabajador(string fic)
 {
 	unsigned int DNI;
@@ -246,8 +245,4 @@ void Trabajador::ModificarTrabajador(string fic)
         
     ReescribirEnFichero(fic, TrabajadorArray);
     }
-
-
-
-
 }
