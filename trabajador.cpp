@@ -140,39 +140,45 @@ vector<Trabajador> Trabajador::leerDeFichero(string fic)
 	vector<Trabajador> vectorTrabajadores;
 	string dato;
 	string nada = "---------------";
+	string nada2 = "";
 
 	while(!ifs.eof())
 	{
 		cout<< "TRABAJADOR ["<<numTrabajador<<"] "<<endl;
 		getline(ifs, dato);
-		 if(dato != nada) //Para asegurar que las rayas no se guardan como atributo del trabajador
+		 if(dato != nada || dato != nada2) //Para asegurar que las rayas no se guardan como atributo del trabajador
 		 {
 		 	if(i==0)
 		 	{
+		 		getline(ifs, dato);
 		 		trabajador[numTrabajador].setDNI(atoi(dato.c_str()));
 		 		cout<<"DNI guardado en vector"<<atoi(dato.c_str())<< endl;
 		 		i++;
 		 	}
 		 	if(i==1)
 		 	{
+		 		getline(ifs, dato);
 		 		trabajador[numTrabajador].setNombre(dato);
 		 		cout<<"Nombre guardado en vector"<<dato<<endl;
 		 		i++;
 		 	}
 		 	if(i==2)
 		 	{
+		 		getline(ifs, dato);
 		 		trabajador[numTrabajador].setApellido(dato);
 		 		cout<<"Apellido guardado en vector"<<dato<<endl;
 		 		i++;
 		 	}
 		 	if(i==3)
 		 	{
+		 		getline(ifs, dato);
 		 		trabajador[numTrabajador].setPuesto(dato);
 		 		cout<<"Puesto guardado en vector"<<dato<<endl;
 		 		i++;
 		 	}
 		 }else
 		 {
+		 	//Aqui falla
 		 	i=0;
 		 	vectorTrabajadores.push_back(trabajador[numTrabajador]);
 		 	numTrabajador++;
@@ -184,7 +190,7 @@ vector<Trabajador> Trabajador::leerDeFichero(string fic)
 }
 
 
-void Trabajador::ReescribirEnFichero (string fic,  vector<Trabajador> t)
+/*void Trabajador::ReescribirEnFichero (string fic,  vector<Trabajador> t)
 {
      ofstream ofs (fic.c_str(), ofstream::out);
 
@@ -216,33 +222,38 @@ void Trabajador::ModificarTrabajador(string fic)
     {
         return;
     }
-
-     else 
+    else 
     {
         cout << "Introduzca el nuevo nombre:" << endl;
         string Nombre;
         
-          cout << "Nombre: ";
-          cin >> Nombre;
+        cout << "Nombre: ";
+        cin >> Nombre;
          
       	TrabajadorArray[DNI].setNombre(Nombre);
         
         cout << "Introduzca el nuevo apellido:" << endl;
         string Apellido;
         
-          cout << "Apellido: ";
-          cin >> Apellido;
+        cout << "Apellido: ";
+        cin >> Apellido;
          
       	TrabajadorArray[DNI].setApellido(Apellido);
 
       	cout << "Introduzca el nuevo puesto:" << endl;
         string Puesto;
         
-          cout << "Puesto: ";
-          cin >> Puesto;
+        cout << "Puesto: ";
+        cin >> Puesto;
          
       	TrabajadorArray[DNI].setPuesto(Puesto);
         
+<<<<<<< HEAD
     ReescribirEnFichero(fic, TrabajadorArray);
     }
 }
+=======
+    	ReescribirEnFichero(fic, TrabajadorArray);
+	}
+}*/
+
