@@ -50,7 +50,7 @@ int IntroducirVuelo() //Devolvera 1 en caso de que no se pueda o no se quiera es
     {
         fgets(str1, 9, stdin);
         clear_if_needed(str1);
-        sscanf(str1, "%[^\n]s", &fecha);
+        sscanf(str1, "%s", &fecha);
     }while(fecha==NULL);
 
      printf("Introduzca el precio del vuelo, con 2 decimales:\n");
@@ -115,5 +115,6 @@ void LeerVuelos()
         fclose(fic);
     }
 }
+
 
 

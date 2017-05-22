@@ -67,7 +67,6 @@ istream& operator>>(istream &in, Trabajador& t)
 	cin>>t.apellido;
 	cout<<"Escriba el puesto del trabajador:"<<endl;
 	cin>>t.puesto;
-	cout<< "-----------------------------------" <<endl;	
 	return in;
 }
 
@@ -84,12 +83,11 @@ void Trabajador::EscribirTrabajador(Trabajador& t) // insertar trabajador en el 
 
 	else
 	{
-		archivo << endl;
+		archivo << "---------------"<<endl;
 		archivo << t.DNI << endl;
 		archivo << t.nombre << endl;
 		archivo << t.apellido << endl;
 		archivo << t.puesto << endl;
-		archivo << "---------------";
 	}
 }
 
@@ -140,13 +138,12 @@ vector<Trabajador> Trabajador::leerDeFichero(string fic)
 	vector<Trabajador> vectorTrabajadores;
 	string dato;
 	string nada = "---------------";
-	string nada2 = "";
 
 	while(!ifs.eof())
 	{
 		cout<< "TRABAJADOR ["<<numTrabajador<<"] "<<endl;
 		getline(ifs, dato);
-		 if(dato != nada || dato != nada2) //Para asegurar que las rayas no se guardan como atributo del trabajador
+		 if(dato != nada ) //Para asegurar que las rayas no se guardan como atributo del trabajador
 		 {
 		 	if(i==0)
 		 	{

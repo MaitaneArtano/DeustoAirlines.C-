@@ -1,0 +1,1 @@
+g++ main.cpp menuCpp.cpp trabajador.cpp menu.o trabajador.o vuelo.o -o main
