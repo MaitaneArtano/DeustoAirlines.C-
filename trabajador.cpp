@@ -131,7 +131,6 @@ int Trabajador::longFichero(string fic)
 vector<Trabajador> Trabajador::leerDeFichero(string fic)
 {
 	Trabajador *trabajador = new Trabajador[longFichero(fic)]; //Crea un array a trabajadores reservando el numero de trabajadores que hay
-	int i = 1; //i controla que la fila 1 es el DNI, el 2 el nombre, 3 apellido, 4 puesto y cuando i=5 --> "-----", i se pone otra vez a 0
 
 	int numTrabajador = 0;
 	ifstream ifs(fic.c_str());
@@ -149,35 +148,24 @@ vector<Trabajador> Trabajador::leerDeFichero(string fic)
 		getline(ifs, dato);
 		 if(dato != nada ) //Para asegurar que las rayas no se guardan como atributo del trabajador
 		 {
-		 	if(i==1)
-		 	{
 		 		dni = atoi(dato.c_str());
 		 		cout<<"DNI guardado en vector"<<atoi(dato.c_str())<< endl;
-		 		i++;
-		 	}
-		 	if(i==2)
-		 	{
+		 		
+		 		getline(ifs, dato);
 		 		nombre = dato;
 		 		cout<<"Nombre guardado en vector"<<dato<<endl;
-		 		i++;
-		 	}
-		 	if(i==3)
-		 	{
+		 		
+		 		getline(ifs, dato);
 		 		apellido = dato;
 		 		cout<<"Apellido guardado en vector"<<dato<<endl;
-		 		i++;
-		 	}
-		 	if(i==4)
-		 	{
-		 		trabajador[numTrabajador].setPuesto(dato);
+		 	
+		 		getline(ifs, dato);
+		 		puesto = dato;
 		 		cout<<"Puesto guardado en vector"<<dato<<endl;
-		 		i++;
-		 	}
+		 		
 		 }else
 		 {
-		 	//Aqui falla
-		 	i=0;
-		 	//trabajador[numTrabajador] --> y llamar al constructor con los "datos" recogidos
+		 	//trabajador[numTrabajador]->nombre = nombre;
 		 	vectorTrabajadores.push_back(trabajador[numTrabajador]);
 		 	numTrabajador++;
 		 }
