@@ -1,0 +1,6 @@
+
+ El DNI del trabajador es: 72545454
+El codigo del vuelo: 1234
+Descripcion: dsad dsada dasdasd
+------------------
+------------------

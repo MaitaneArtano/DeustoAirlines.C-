@@ -11,6 +11,8 @@ using namespace std;
 
 void menuPrincipal()
 {
+
+	void EliminarTrabajador();
 	int opcion;
 
 	do
@@ -22,7 +24,7 @@ void menuPrincipal()
 		cout<<"4.- Asignar tarea a trabajador"<<endl;
 		cout<<"5.- Ver agenda de trabajo"<<endl;
 		cout<<"6.- Insertar nuevo trabajador"<<endl;
-		cout<<"7.- Modificar un trabajador"<<endl;
+		cout<<"7.- Eliminar un trabajador"<<endl;
 		cout<<"8.- Salir"<<endl;
 		cin >> opcion;
 		switch(opcion)
@@ -59,8 +61,8 @@ void menuPrincipal()
 
 
 			case 7:
-				cout<<"Ha escogido modificar trabajador"<<endl;
-				//ModificarTrabajador();
+				cout<<"Ha escogido eliminar trabajador"<<endl;
+				EliminarTrabajador();
 				break;
 
 			case 8:

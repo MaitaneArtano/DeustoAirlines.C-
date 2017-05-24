@@ -31,10 +31,11 @@ public:
 
 	void EscribirTrabajador(Trabajador& t);
 	void ConsultarTrabajadores();
-	//void ModificarTrabajador(string fic);
 	vector<Trabajador> leerDeFichero(string fic);
 	int longFichero(string fic);
-	//void ReescribirEnFichero (string fic,  vector<Trabajador> t);
+	void ReescribirEnFichero (string fic,  vector<Trabajador> t1);
+	void EliminarTrabajador(string fic);
+
 
 	void printTrabajador(Trabajador &t1);
 

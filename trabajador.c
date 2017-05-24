@@ -92,7 +92,7 @@ void asignarTarea()
                    {
                      fgets(str3, 200, stdin);
                      clear_if_needed(str3);
-                     sscanf(str3, "%s", &descrip);
+                     sscanf(str3,"%[^\n]s" , &descrip);
                    }while(descrip==NULL);
 
 

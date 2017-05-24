@@ -167,72 +167,24 @@ void Trabajador::printTrabajador(Trabajador &t1)
 }
 
 
-/*void Trabajador::ReescribirEnFichero (string fic,  vector<Trabajador> t)
+void Trabajador::EliminarTrabajador(string fic)
 {
-     ofstream ofs (fic.c_str(), ofstream::out);
+	int DNI;
 
-   
-        for (unsigned int i=0; i<t.size(); i++)
-        {
-            ofs << t[i];
-        }
-        cout << "Cambios gudardados!" << endl;
-        cout << endl;
-        ofs.close();
-}
+	vector <Trabajador> vectorTrabajadores = leerDeFichero(fic);
+	vector <Trabajador> vectorAuxiliar;
 
 
-void Trabajador::ModificarTrabajador(string fic)
-{
-	unsigned int DNI;
+	cout << "Seleccione el DNI del trabajador que desea eliminar" << endl;
+	cin >> DNI;
 
-	vector <Trabajador> TrabajadorArray = leerDeFichero(fic);
-
-	do
+	for(int i=0; i<vectorTrabajadores.size(); i++)
 	{
-        cout << "Seleccione el DNI del trabajador que desea modificar " << endl;
-        cin >> DNI;
-    
-    }while (DNI > TrabajadorArray.size());
-
-    if (DNI == TrabajadorArray.size())
-    {
-        return;
-    }
-    else 
-    {
-        cout << "Introduzca el nuevo nombre:" << endl;
-        string Nombre;
-        
-        cout << "Nombre: ";
-        cin >> Nombre;
-         
-      	TrabajadorArray[DNI].setNombre(Nombre);
-        
-        cout << "Introduzca el nuevo apellido:" << endl;
-        string Apellido;
-        
-        cout << "Apellido: ";
-        cin >> Apellido;
-         
-      	TrabajadorArray[DNI].setApellido(Apellido);
-
-      	cout << "Introduzca el nuevo puesto:" << endl;
-        string Puesto;
-        
-        cout << "Puesto: ";
-        cin >> Puesto;
-         
-      	TrabajadorArray[DNI].setPuesto(Puesto);
-        
-<<<<<<< HEAD
-    ReescribirEnFichero(fic, TrabajadorArray);
-    }
-}
-=======
-    	ReescribirEnFichero(fic, TrabajadorArray);
+		
 	}
-}*/
+	
+
+}
 
 
 /*void Trabajador::ConsultarTrabajadores()
