@@ -8,5 +8,6 @@ using namespace std;
 void menuPrincipal();
 void InsertarTrabajador();
 void listarTrabajadores();
+void eliminartrabajador();
 
 #endif
