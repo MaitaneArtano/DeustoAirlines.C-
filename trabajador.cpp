@@ -143,9 +143,11 @@ vector<Trabajador> Trabajador::leerDeFichero(string fic)
 		 		
 		 }else
 		 {
+		 	cout<< "Hemos entrado "<<endl;
 		 	Trabajador t1(dni, nombre, apellido, puesto);
 		 	printTrabajador(t1);
 		 	vectorTrabajadores.push_back(t1);
+		 	cout<< "Elementos " << vectorTrabajadores.size() <<endl;
 		 	numTrabajador++;
 		 }
 	}

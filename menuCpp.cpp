@@ -96,7 +96,7 @@ void listarTrabajadores()
 
 	
 	vector<Trabajador> miVector = t1.leerDeFichero(fichero);
-	cout<<"Leyendo trabajadores de vectorTrabajadores..."<<endl;
+	cout<<"Leyendo trabajadores de vectorTrabajadores..."<<miVector.size()<<endl;
 	for(int i=0; i<miVector.size(); i++)
 	{
 		Trabajador t = miVector[i];
@@ -105,7 +105,6 @@ void listarTrabajadores()
 		cout << "\t" << t.getNombre()<<endl;
 		cout<< "\t" << t.getApellido()<<endl;
 		cout<<"\t" << t.getPuesto()<<endl;
-		i++;
 	}
 }
 
