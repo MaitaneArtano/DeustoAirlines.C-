@@ -84,33 +84,12 @@ void Trabajador::EscribirTrabajador(Trabajador& t) // insertar trabajador en el 
 
 	else
 	{
-		archivo << "---------------"<<endl;
 		archivo << t.DNI << endl;
 		archivo << t.nombre << endl;
 		archivo << t.apellido << endl;
 		archivo << t.puesto << endl;
+		archivo << "---------------"<<endl;
 	}
-}
-
-void Trabajador::ConsultarTrabajadores()
-{
-	ifstream archivo;
-	string texto;
-	archivo.open("Trabajador.txt", ios::in);
-
-	if(archivo.fail())
-	{
-		cout << "No se pudo abrir el archivo";
-		exit(1);
-	}else
-	{
-		while(!archivo.eof())
-		{
-			getline(archivo,texto);
-			cout<<texto<<endl;
-		}
-	}
-	archivo.close();
 }
 
 int Trabajador::longFichero(string fic)
@@ -130,9 +109,7 @@ int Trabajador::longFichero(string fic)
 
 vector<Trabajador> Trabajador::leerDeFichero(string fic)
 {
-	Trabajador *trabajador = new Trabajador[longFichero(fic)]; //Crea un array a trabajadores reservando el numero de trabajadores que hay
-
-	int numTrabajador = 0;
+	int numTrabajador = 1;
 	ifstream ifs(fic.c_str());
 	vector<Trabajador> vectorTrabajadores;
 	string dato;
@@ -144,35 +121,47 @@ vector<Trabajador> Trabajador::leerDeFichero(string fic)
 
 	while(!ifs.eof())
 	{
-		cout<< "TRABAJADOR ["<<numTrabajador<<"] "<<endl;
+		
 		getline(ifs, dato);
 		 if(dato != nada ) //Para asegurar que las rayas no se guardan como atributo del trabajador
 		 {
+		 		cout<< "TRABAJADOR ["<<numTrabajador<<"] "<<endl;
 		 		dni = atoi(dato.c_str());
-		 		cout<<"DNI guardado en vector"<<atoi(dato.c_str())<< endl;
+		 		//cout<<"DNI guardado en vector "<<atoi(dato.c_str())<< endl;
 		 		
 		 		getline(ifs, dato);
 		 		nombre = dato;
-		 		cout<<"Nombre guardado en vector"<<dato<<endl;
+		 		//cout<<"Nombre guardado en vector "<<dato<<endl;
 		 		
 		 		getline(ifs, dato);
 		 		apellido = dato;
-		 		cout<<"Apellido guardado en vector"<<dato<<endl;
+		 		//cout<<"Apellido guardado en vector "<<dato<<endl;
 		 	
 		 		getline(ifs, dato);
 		 		puesto = dato;
-		 		cout<<"Puesto guardado en vector"<<dato<<endl;
+		 		//cout<<"Puesto guardado en vector "<<dato<<endl;
 		 		
 		 }else
 		 {
-		 	//trabajador[numTrabajador]->nombre = nombre;
-		 	vectorTrabajadores.push_back(trabajador[numTrabajador]);
+		 	Trabajador t1(dni, nombre, apellido, puesto);
+		 	printTrabajador(t1);
+		 	vectorTrabajadores.push_back(t1);
 		 	numTrabajador++;
 		 }
 	}
 
 	ifs.close();
 	return vectorTrabajadores;
+}
+
+void Trabajador::printTrabajador(Trabajador &t1)
+{
+	cout << "Trabajador:" << endl;
+	cout << "\tDNI: " << t1.getDNI() << endl;
+	cout << "\tNombre: " << t1.getNombre() << endl;
+	cout << "\tApellido: " << t1.getApellido() << endl;
+	cout << "\tPuesto: " << t1.getPuesto() << endl;
+	cout << "-------------------: "<< endl;
 }
 
 
@@ -242,4 +231,27 @@ void Trabajador::ModificarTrabajador(string fic)
     	ReescribirEnFichero(fic, TrabajadorArray);
 	}
 }*/
+
+
+/*void Trabajador::ConsultarTrabajadores()
+{
+	ifstream archivo;
+	string texto;
+	archivo.open("Trabajador.txt", ios::in);
+
+	if(archivo.fail())
+	{
+		cout << "No se pudo abrir el archivo";
+		exit(1);
+	}else
+	{
+		while(!archivo.eof())
+		{
+			getline(archivo,texto);
+			cout<<texto<<endl;
+		}
+	}
+	archivo.close();
+}*/
+
 

@@ -36,6 +36,8 @@ public:
 	int longFichero(string fic);
 	//void ReescribirEnFichero (string fic,  vector<Trabajador> t);
 
+	void printTrabajador(Trabajador &t1);
+
 	//Funcion que escribira directamente en fichero el trabajador
 	friend istream& operator>>(istream &in, Trabajador& t);
 	

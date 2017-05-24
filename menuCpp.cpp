@@ -89,21 +89,22 @@ void listarTrabajadores()
 {
 	Trabajador t1;
 	string fichero = "Trabajador.txt";
-	t1.ConsultarTrabajadores();
+	//t1.ConsultarTrabajadores();
 
 	int longitud = t1.longFichero(fichero);
 	cout<<"Tenemos "<< longitud <<" trabajadores registrados "<<endl;
 
-	cout<<"Leyendo trabajadores de vectorTrabajadores..."<<endl;
+	
 	vector<Trabajador> miVector = t1.leerDeFichero(fichero);
+	cout<<"Leyendo trabajadores de vectorTrabajadores..."<<endl;
 	for(int i=0; i<miVector.size(); i++)
 	{
 		Trabajador t = miVector[i];
 		cout<<"Trabajador "<< i <<endl;
-		//cout<< atoi(t.getDNI().c_str()) <<endl;
-		cout <<t.getNombre()<<endl;
-		cout<<t.getApellido()<<endl;
-		cout<<t.getPuesto()<<endl;
+		cout<< "\t" << t.getDNI() <<endl;
+		cout << "\t" << t.getNombre()<<endl;
+		cout<< "\t" << t.getApellido()<<endl;
+		cout<<"\t" << t.getPuesto()<<endl;
 		i++;
 	}
 }
