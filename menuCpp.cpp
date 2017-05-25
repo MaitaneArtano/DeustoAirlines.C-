@@ -13,6 +13,7 @@ void menuPrincipal()
 {
 
 	void EliminarTrabajador();
+	
 	int opcion;
 
 	do

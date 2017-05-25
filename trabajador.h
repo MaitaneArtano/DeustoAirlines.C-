@@ -33,7 +33,6 @@ public:
 	void ConsultarTrabajadores();
 	vector<Trabajador> leerDeFichero(string fic);
 	int longFichero(string fic);
-	void ReescribirEnFichero (string fic,  vector<Trabajador> t1);
 	void EliminarTrabajador(string fic);
 
 
