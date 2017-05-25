@@ -173,21 +173,16 @@ void Trabajador::EliminarTrabajador(string fic)
 
 	vector <Trabajador> vectorAuxiliar;
 
-	cout << "Lista de los trabajadores dsiponibles:" << endl;
+	cout << "Lista de los trabajadores disponibles:" << endl;
 	Trabajador t1;
 	
-
 	vector<Trabajador> vectorTrabajadores = t1.leerDeFichero(fic);
 	
 	
-	
-
 	for(int i=0; i<vectorTrabajadores.size(); i++)
 	{
 		Trabajador t = vectorTrabajadores[i]; 
 		 
-
-
 
 		 do
 		 {
