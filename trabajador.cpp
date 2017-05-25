@@ -125,24 +125,19 @@ vector<Trabajador> Trabajador::leerDeFichero(string fic)
 		 if(dato != nada ) //Para asegurar que las rayas no se guardan como atributo del trabajador
 		 {
 		 		dni = atoi(dato.c_str());
-		 		//cout<<"DNI guardado en vector "<<atoi(dato.c_str())<< endl;
 		 		
 		 		getline(ifs, dato);
 		 		nombre = dato;
-		 		//cout<<"Nombre guardado en vector "<<dato<<endl;
 		 		
 		 		getline(ifs, dato);
 		 		apellido = dato;
-		 		//cout<<"Apellido guardado en vector "<<dato<<endl;
 		 	
 		 		getline(ifs, dato);
 		 		puesto = dato;
-		 		//cout<<"Puesto guardado en vector "<<dato<<endl;
 		 		
 		 }else
 		 {
 		 	Trabajador t1(dni, nombre, apellido, puesto);
-		 	//printTrabajador(t1);
 		 	vectorTrabajadores.push_back(t1);
 		 }
 	}

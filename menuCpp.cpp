@@ -12,8 +12,6 @@ using namespace std;
 void menuPrincipal()
 {
 
-	void EliminarTrabajador();
-	
 	int opcion;
 
 	do
@@ -21,10 +19,10 @@ void menuPrincipal()
 		cout<<"Introduzca una de las siguientes opciones:"<<endl;
 		cout<<"1.- Crear vuelo"<<endl;
 		cout<<"2.- Consultar vuelos"<<endl;
-		cout<<"3.- Consultar trabajadores"<<endl;
+		cout<<"3.- Insertar trabajadores"<<endl;
 		cout<<"4.- Asignar tarea a trabajador"<<endl;
 		cout<<"5.- Ver agenda de trabajo"<<endl;
-		cout<<"6.- Insertar nuevo trabajador"<<endl;
+		cout<<"6.- Consultar trabajadores"<<endl;
 		cout<<"7.- Eliminar un trabajador"<<endl;
 		cout<<"8.- Salir"<<endl;
 		cin >> opcion;
@@ -41,8 +39,8 @@ void menuPrincipal()
 				break;
 
 			case 3:
-				cout<<"Ha escogido consultar los trabajadores existentes"<<endl;
-				listarTrabajadores();
+				cout<<"Ha escogido insertar nuevo trabajador"<<endl;
+				InsertarTrabajador();
 				break;
 
 			case 4:
@@ -56,14 +54,13 @@ void menuPrincipal()
 				break;
 
 			case 6:
-				cout<<"Ha escogido insertar trabajador"<<endl;
-				InsertarTrabajador();
+				cout<<"Ha escogido consultar los trabajadores existentes"<<endl;
+				listarTrabajadores();
 				break;
 
 
 			case 7:
 				cout<<"Ha escogido eliminar trabajador"<<endl;
-				//EliminarTrabajador();
 				eliminartrabajador();
 				break;
 
@@ -99,8 +96,6 @@ void listarTrabajadores()
 {
 	Trabajador t1;
 	string fichero = "Trabajador.txt";
-	//t1.ConsultarTrabajadores();
-
 	int longitud = t1.longFichero(fichero);
 	cout<<"Tenemos "<< longitud <<" trabajadores registrados "<<endl;
 

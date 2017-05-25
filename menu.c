@@ -55,8 +55,7 @@ int validacionVuelo(int cod_vuelo)//Devuelve 1 en caso de que exista, -1 si no h
 
 void clear_if_needed(char *str)
 {
-
-    if (str[strlen(str) - 1] != '\n'){
+	 if (str[strlen(str) - 1] != '\n'){
         int c;
         while ((c = getchar()) != EOF && c != '\n');
     }
