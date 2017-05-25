@@ -171,41 +171,62 @@ void Trabajador::EliminarTrabajador(string fic)
 {
 	int DNI;
 
-	vector <Trabajador> vectorTrabajadores = leerDeFichero(fic);
 	vector <Trabajador> vectorAuxiliar;
 
+	cout << "Lista de los trabajadores dsiponibles:" << endl;
+	Trabajador t1;
+	
 
-	cout << "Seleccione el DNI del trabajador que desea eliminar" << endl;
-	cin >> DNI;
+	vector<Trabajador> vectorTrabajadores = t1.leerDeFichero(fic);
+	
+	
+	
 
 	for(int i=0; i<vectorTrabajadores.size(); i++)
 	{
+		Trabajador t = vectorTrabajadores[i]; 
+		 
+
+
+
+		 do
+		 {
+			cout << "Seleccione el DNI del trabajador que desea eliminar" << endl;
+			cin >> DNI;
+			
+			
+		}while(DNI!=vectorTrabajadores[i].getDNI());
 		
-	}
-	
 
-}
+			if(DNI==vectorTrabajadores[i].getDNI())
+				
+			{
 
+					t= vectorTrabajadores[i+1];
+					cout << "Trabajador eliminado correctamente"<< endl;
 
-/*void Trabajador::ConsultarTrabajadores()
-{
-	ifstream archivo;
-	string texto;
-	archivo.open("Trabajador.txt", ios::in);
+					cout << "Trabajadores que quedan en el vector -->"<< endl;
+					
+					for(int i=0; i<vectorTrabajadores.size(); i++)
+					{
+			
+					cout<<"Trabajador "<< i <<endl;
+					cout<< "\t" << t.getDNI() <<endl;
+					cout << "\t" << t.getNombre()<<endl;
+					cout<< "\t" << t.getApellido()<<endl;
+					cout<<"\t" << t.getPuesto()<<endl;
+					return; }
+			
 
-	if(archivo.fail())
-	{
-		cout << "No se pudo abrir el archivo";
-		exit(1);
-	}else
-	{
-		while(!archivo.eof())
-		{
-			getline(archivo,texto);
-			cout<<texto<<endl;
+			}	
 		}
-	}
-	archivo.close();
-}*/
+
+	}	
+			
+		
+
+
+
+
 
 

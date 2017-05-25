@@ -63,7 +63,8 @@ void menuPrincipal()
 
 			case 7:
 				cout<<"Ha escogido eliminar trabajador"<<endl;
-				EliminarTrabajador();
+				//EliminarTrabajador();
+				eliminartrabajador();
 				break;
 
 			case 8:
@@ -86,7 +87,13 @@ void InsertarTrabajador() // validar el DNI del trabajador antes de guardar en f
 
 	t1.EscribirTrabajador(t1);
 }
+void eliminartrabajador()
+{
+	Trabajador t1;
+	string fichero = "Trabajador.txt";
+	t1.EliminarTrabajador(fichero);
 
+}
 
 void listarTrabajadores()
 {
