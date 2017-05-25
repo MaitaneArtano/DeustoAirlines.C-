@@ -109,7 +109,6 @@ int Trabajador::longFichero(string fic)
 
 vector<Trabajador> Trabajador::leerDeFichero(string fic)
 {
-	int numTrabajador = 1;
 	ifstream ifs(fic.c_str());
 	vector<Trabajador> vectorTrabajadores;
 	string dato;
@@ -125,7 +124,6 @@ vector<Trabajador> Trabajador::leerDeFichero(string fic)
 		getline(ifs, dato);
 		 if(dato != nada ) //Para asegurar que las rayas no se guardan como atributo del trabajador
 		 {
-		 		cout<< "TRABAJADOR ["<<numTrabajador<<"] "<<endl;
 		 		dni = atoi(dato.c_str());
 		 		//cout<<"DNI guardado en vector "<<atoi(dato.c_str())<< endl;
 		 		
@@ -143,12 +141,9 @@ vector<Trabajador> Trabajador::leerDeFichero(string fic)
 		 		
 		 }else
 		 {
-		 	cout<< "Hemos entrado "<<endl;
 		 	Trabajador t1(dni, nombre, apellido, puesto);
-		 	printTrabajador(t1);
+		 	//printTrabajador(t1);
 		 	vectorTrabajadores.push_back(t1);
-		 	cout<< "Elementos " << vectorTrabajadores.size() <<endl;
-		 	numTrabajador++;
 		 }
 	}
 
@@ -170,6 +165,8 @@ void Trabajador::printTrabajador(Trabajador &t1)
 void Trabajador::EliminarTrabajador(string fic)
 {
 	int DNI;
+	bool comprob = false;//Debera cambiar a true en caso de que encuentre un trabajador con el mismo DNI 
+	int posTra; //La posicion en el vector del trabajador que quiero eliminar
 
 	vector <Trabajador> vectorAuxiliar;
 
@@ -177,46 +174,72 @@ void Trabajador::EliminarTrabajador(string fic)
 	Trabajador t1;
 	
 	vector<Trabajador> vectorTrabajadores = t1.leerDeFichero(fic);
-	
-	
 	for(int i=0; i<vectorTrabajadores.size(); i++)
 	{
-		Trabajador t = vectorTrabajadores[i]; 
-		 
+		Trabajador t = vectorTrabajadores[i];
+		cout<<"Trabajador "<< i+1 <<endl;
+		cout<< "\t" << t.getDNI() <<endl;
+		cout << "\t" << t.getNombre()<<endl;
+		cout<< "\t" << t.getApellido()<<endl;
+		cout<<"\t" << t.getPuesto()<<endl;
+	}
 
-		 do
-		 {
-			cout << "Seleccione el DNI del trabajador que desea eliminar" << endl;
-			cin >> DNI;
-			
-			
-		}while(DNI!=vectorTrabajadores[i].getDNI());
-		
+	do
+	{
+		cout<<"Escriba el DNI del trabajador(sin letra):"<<endl;
+		cin>> DNI;
 
-			if(DNI==vectorTrabajadores[i].getDNI())
-				
+		for(int i=0; i<vectorTrabajadores.size();i++)
+		{
+			Trabajador t = vectorTrabajadores[i];
+			if(DNI == t.getDNI())
 			{
-
-					t= vectorTrabajadores[i+1];
-					cout << "Trabajador eliminado correctamente"<< endl;
-
-					cout << "Trabajadores que quedan en el vector -->"<< endl;
-					
-					for(int i=0; i<vectorTrabajadores.size(); i++)
-					{
-			
-					cout<<"Trabajador "<< i <<endl;
-					cout<< "\t" << t.getDNI() <<endl;
-					cout << "\t" << t.getNombre()<<endl;
-					cout<< "\t" << t.getApellido()<<endl;
-					cout<<"\t" << t.getPuesto()<<endl;
-					return; }
-			
-
-			}	
+				comprob = true;
+				cout<<"He cambiado a true, existe trabajador"<<endl;
+				posTra = i;//En esa posición del vector es donde esta el trabajador que quiero eliminar
+				break; 
+			}else
+			{
+				comprob = false;
+			}
 		}
+		if(comprob == false)
+		{
+			cout<<"No se ha encontrado ningun trabajador con ese DNI, intentalo otra vez"<<endl;
+		}
+	}while(comprob != true);
 
-	}	
+	vectorTrabajadores.erase(vectorTrabajadores.begin()+posTra);
+
+	cout<<endl;
+	cout<<"NUEVO VECTOR"<<endl;
+	for(int i=0; i<vectorTrabajadores.size(); i++)
+	{
+		Trabajador t = vectorTrabajadores[i];
+		cout<<"Trabajador "<< i+1 <<endl;
+		cout<< "\t" << t.getDNI() <<endl;
+		cout << "\t" << t.getNombre()<<endl;
+		cout<< "\t" << t.getApellido()<<endl;
+		cout<<"\t" << t.getPuesto()<<endl;
+	}
+
+	//Ahora elimino el fichero de trabajadores para escribir el nuevo
+	if(remove("Trabajador.txt") != 0)
+	{
+		cout<<"Error al eliminar fihcero Trabajador.txt"<<endl;
+	}else
+	{
+		cout<<"Fichero correctamente eliminado"<<endl;
+	}
+
+	//Finalmente, reescribo el fichero con los datos del nuevo vector
+	for(int i=0; i<vectorTrabajadores.size();i++)
+	{
+		Trabajador t = vectorTrabajadores[i];
+		EscribirTrabajador(t);
+	}
+
+}	
 			
 		
 

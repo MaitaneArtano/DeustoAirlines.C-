@@ -110,7 +110,7 @@ void listarTrabajadores()
 	for(int i=0; i<miVector.size(); i++)
 	{
 		Trabajador t = miVector[i];
-		cout<<"Trabajador "<< i <<endl;
+		cout<<"Trabajador "<< i+1 <<endl;
 		cout<< "\t" << t.getDNI() <<endl;
 		cout << "\t" << t.getNombre()<<endl;
 		cout<< "\t" << t.getApellido()<<endl;
