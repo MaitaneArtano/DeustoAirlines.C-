@@ -60,8 +60,38 @@ string Trabajador::getPuesto()
 //Escribe el trabajador en fichero
 istream& operator>>(istream &in, Trabajador& t)
 {
-	cout<<"Escriba el DNI del trabajador(sin letra):"<<endl;
-	cin>> t.DNI;
+	bool comprob = false; //Sera true cuando el DNI insertado sea un int
+	string DNI;
+	string fic = "Trabajador.txt";
+	Trabajador t1;
+	do
+	{
+		cout<<"Escriba el DNI del trabajador(sin letra):"<<endl;
+		cin>> DNI;
+		if(atoi(DNI.c_str())!=0)
+		{
+			comprob = true;
+		}else
+		{
+			cout << "DNI no valido" <<endl;
+		}
+		if(ifstream("Trabajador.txt"))
+		{
+			vector<Trabajador> vectorTrabajadores = t1.leerDeFichero(fic);
+			for(int i=0; i<vectorTrabajadores.size(); i++)
+			{
+				Trabajador t = vectorTrabajadores[i];
+				if(atoi(DNI.c_str()) == t.getDNI())
+				{
+					cout<<endl;
+					cout<<"Este trabajador ya existe!"<<endl;
+					cout<<endl;
+					comprob = false;
+				}
+			}
+		}
+	}while(comprob != true);
+	
 	cout<<"Escriba el nombre del trabajador:"<<endl;
 	cin>>t.nombre;
 	cout<<"Escriba el apellido del trabajador:"<<endl;
