@@ -99,8 +99,6 @@ void listarTrabajadores()
 	Trabajador t1;
 	string fichero = "Trabajador.txt";
 	
-	
-	
 	int longitud = t1.longFichero(fichero);
 	cout<<"Tenemos "<< longitud <<" trabajadores registrados "<<endl;
 
