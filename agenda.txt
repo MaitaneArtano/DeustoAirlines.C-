@@ -1,6 +1,0 @@
-
- El DNI del trabajador es: 72515151
-El codigo del vuelo: 456
-Descripcion: Recoger bandejas
-------------------
-------------------

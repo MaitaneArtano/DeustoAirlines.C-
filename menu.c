@@ -5,6 +5,7 @@
 
 int validacionVuelo(int cod_vuelo);
 
+
 int validacion(int DNI)//Devuelve 1 en caso de que exista, -1 si no hay trabajadores y 0 si no coincide con ningun trabajador
 {
 	FILE *fichero;

@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <fstream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -96,6 +98,9 @@ void listarTrabajadores()
 {
 	Trabajador t1;
 	string fichero = "Trabajador.txt";
+	
+	
+	
 	int longitud = t1.longFichero(fichero);
 	cout<<"Tenemos "<< longitud <<" trabajadores registrados "<<endl;
 
@@ -110,8 +115,10 @@ void listarTrabajadores()
 		cout << "\t" << t.getNombre()<<endl;
 		cout<< "\t" << t.getApellido()<<endl;
 		cout<<"\t" << t.getPuesto()<<endl;
-	}
+	}	
+
 }
+	
 
 
 
