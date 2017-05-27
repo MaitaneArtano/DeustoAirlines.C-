@@ -1,1 +1,15 @@
 g++ main.cpp menuCpp.cpp trabajador.cpp menu.o trabajador.o vuelo.o -o main
+_______________________________________________________________________
+
+En DeustoAirlines se puede:
+1) Crear vuelos
+2) Consultar vuelos
+3) Insertar trabajadores
+4) Asignar tareas a trabajadores en los vuelos
+5) Visualizar la agenda de trabajo
+6) Consultar trabajadores
+7) Eliminar trabajadores
+________________________________________________________________________
+
+Enlace de GitHub:
+https://github.com/MaitaneArtano/DeustoAirlines.C-.git

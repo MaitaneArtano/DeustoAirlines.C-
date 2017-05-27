@@ -60,7 +60,8 @@ string Trabajador::getPuesto()
 //Escribe el trabajador en fichero
 istream& operator>>(istream &in, Trabajador& t)
 {
-	bool comprob = false; //Sera true cuando el DNI insertado sea un int
+	//Comprobacion de que el dni sea un int y que no se repita con alguno ya anteriormente introducido
+	/*bool comprob = false; //Sera true cuando el DNI insertado sea un int
 	string DNI;
 	string fic = "Trabajador.txt";
 	Trabajador t1;
@@ -90,8 +91,10 @@ istream& operator>>(istream &in, Trabajador& t)
 				}
 			}
 		}
-	}while(comprob != true);
-	
+	}while(comprob != true);*/
+
+	cout<<"Escriba el DNI del trabajador (sin letra): "<<endl;
+	cin>>t.DNI;
 	cout<<"Escriba el nombre del trabajador:"<<endl;
 	cin>>t.nombre;
 	cout<<"Escriba el apellido del trabajador:"<<endl;
